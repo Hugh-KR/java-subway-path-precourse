@@ -12,15 +12,14 @@ public class MainController implements Controller {
     @Override
     public void run(final InputView inputView, final OutputView outputView) {
         do {
+            main = readMain(inputView);
             selectMenu(inputView, outputView);
         } while (main.isRunning());
     }
 
     private void selectMenu(final InputView inputView, final OutputView outputView) {
         try {
-            main = readMain(inputView);
             main.run(inputView, outputView);
-
         } catch (CustomIllegalArgumentException e) {
             main = Main.selectRouteState();
         }

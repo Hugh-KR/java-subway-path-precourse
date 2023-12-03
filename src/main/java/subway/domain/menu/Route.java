@@ -15,12 +15,12 @@ public enum Route {
     private final String select;
     private final Runnable runnable;
 
-    Route(String select, Runnable runnable) {
+    Route(final String select, final Runnable runnable) {
         this.select = select;
         this.runnable = runnable;
     }
 
-    public static Route findMenu(String select) {
+    public static Route findMenu(final String select) {
         return Arrays.stream(Route.values())
                 .filter(menu -> Objects.equals(menu.select, select))
                 .findAny()
